@@ -9,7 +9,6 @@ Window {
     color: "#ededed"
     title: qsTr("CM4 Demo")
 
-//    Content.Clock { x: 20; y: 87; city: cityName; shift: timeShift }
     Content.Clock { x: 20; y: 94; city: ""; shift: 8 }
 
     Text {
@@ -58,12 +57,4 @@ Window {
         horizontalAlignment: Text.AlignHCenter
         font.bold: false
     }
-
-
-
-
-
-
-
-
 }
