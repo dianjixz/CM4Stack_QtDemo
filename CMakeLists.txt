@@ -18,32 +18,32 @@ set(PROJECT_SOURCES
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(cm4Demo
+    qt_add_executable(cm4QtDemo
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
     )
 # Define target properties for Android with Qt 6 as:
-#    set_property(TARGET cm4Demo APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
+#    set_property(TARGET cm4QtDemo APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
 #                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
 # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
     if(ANDROID)
-        add_library(cm4Demo SHARED
+        add_library(cm4QtDemo SHARED
             ${PROJECT_SOURCES}
         )
 # Define properties for Android with Qt 5 after find_package() calls as:
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
-        add_executable(cm4Demo
+        add_executable(cm4QtDemo
           ${PROJECT_SOURCES}
         )
     endif()
 endif()
 
-target_link_libraries(cm4Demo
+target_link_libraries(cm4QtDemo
   PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick)
 
-set_target_properties(cm4Demo PROPERTIES
+set_target_properties(cm4QtDemo PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
@@ -51,11 +51,11 @@ set_target_properties(cm4Demo PROPERTIES
     WIN32_EXECUTABLE TRUE
 )
 
-install(TARGETS cm4Demo
+install(TARGETS cm4QtDemo
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 if(QT_VERSION_MAJOR EQUAL 6)
-    qt_import_qml_plugins(cm4Demo)
-    qt_finalize_executable(cm4Demo)
+    qt_import_qml_plugins(cm4QtDemo)
+    qt_finalize_executable(cm4QtDemo)
 endif()
