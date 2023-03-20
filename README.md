@@ -38,3 +38,9 @@ export QT_QPA_PLATFORM=linuxfb:fb=/dev/fb1
 
 Demo will display on `/dev/fb1`, learn more:  https://doc.qt.io/qt-6/embedded-linux.html
 
+You can use unset this config:
+
+```bash
+unset QT_QPA_PLATFORM
+```
+
