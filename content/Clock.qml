@@ -35,7 +35,6 @@ Item {
         minutes = internationalTime ? date.getUTCMinutes() + ((clock.shift % 1) * 60) : date.getMinutes()
         seconds = date.getUTCSeconds();
 
-
         /* Update time lable*/
         var current_time = date.getHours() + ":";
         if (date.getMinutes() < 10) {
@@ -47,8 +46,6 @@ Item {
         }
         current_time += date.getUTCSeconds();
         text_Clock.text = current_time;
-
-//        text_Clock.text = date.getHours() + ":" + date.getMinutes() + ":" + date.getUTCSeconds();
     }
 
     Timer {
