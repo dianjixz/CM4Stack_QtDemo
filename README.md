@@ -32,7 +32,8 @@ cmake .. && make
 ### Display on specified framebuffer
 
 ```bash
-export QT_QPA_PLATFORM=linuxfb:fb=/dev/fb1
+# export QT_QPA_PLATFORM=linuxfb:fb=/dev/fb1
+export QT_QPA_PLATFORM=linuxfb:fb=/dev/fb$(cat /proc/fb | grep fb_st7789v | awk '{print $1}')
 ./cm4QtDemo
 ```
 
